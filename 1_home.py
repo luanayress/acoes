@@ -1,6 +1,5 @@
 # Imports
 import random
-import plotly.graph_objects as go
 import numpy as np
 from datetime import date
 import pandas as pd
@@ -28,13 +27,6 @@ acao_escolhida = st.sidebar.text_input("Digite a Ação", value="AAPL")
 df = pegar_dados_acoes(acao_escolhida).reset_index()
 
 # Candlestick
-fig = go.Figure(data = [go.Candlestick(x = df['Date'],
-                open = df['Open'],
-                high = df['High'],
-                low = df['Low'],
-                close = df['Close'])])
-
-#fig.show()
 
 # Vamos trabalhar com a cotação de fechamento da ação da Apple
 precos = df['Close'].values
@@ -144,15 +136,6 @@ else:
 
 # Título do painel
 st.title("Agente de Negociação com Q-Learning")
-
-# Mostrar gráfico de candlestick
-st.subheader(f"Gráfico de Candlestick para {acao_escolhida}")
-fig = go.Figure(data = [go.Candlestick(x = df['Date'],
-                open = df['Open'],
-                high = df['High'],
-                low = df['Low'],
-                close = df['Close'])])
-st.plotly_chart(fig)
 
 # Exibir resultado final
 st.subheader("Resultados da Execução")
