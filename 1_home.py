@@ -3,7 +3,24 @@ import random
 import numpy as np
 from datetime import date
 import pandas as pd
-import yfinance as yf
+import os
+import subprocess
+
+# Instalar pacotes ausentes
+def install(package):
+    subprocess.check_call([os.sys.executable, "-m", "pip", "install", package])
+
+# Instalar plotly e yfinance se não estiverem instalados
+try:
+    import plotly.graph_objects as go
+except ModuleNotFoundError:
+    install("plotly")
+
+try:
+    import yfinance as yf
+except ModuleNotFoundError:
+    install("yfinance")
+
 
 DATA_INICIO = '2024-01-01'
 DATA_FIM = date.today()
