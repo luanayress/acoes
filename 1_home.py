@@ -6,8 +6,6 @@ import random
 import plotly.graph_objects as go
 import yfinance as yf
 
-acao_escolhida = st.sidebar.text_input("Digite a Ação", value="AAPL")
-
 st.write('teste')
 DATA_INICIO = '2024-01-01'
 DATA_FIM = date.today()
